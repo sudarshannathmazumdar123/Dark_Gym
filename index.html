@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Gym</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: #121212; color: #fff; }
+    header { background-color: #1f1f1f; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.4); position: relative; }
+    header h1 { color: #00ffcc; font-size: 24px; }
+    nav { display: flex; }
+    nav a { color: #ccc; text-decoration: none; margin-left: 20px; transition: color 0.3s ease; }
+    nav a:hover { color: #00ffcc; }
+    .navbar-toggle { display: none; flex-direction: column; cursor: pointer; z-index: 100; }
+    .navbar-toggle div { width: 30px; height: 4px; background-color: #ccc; margin: 5px 0; }
+    .hero { height: 80vh; background: url('https://images.unsplash.com/photo-1605296867304-46d5465a13f1') no-repeat center center/cover; display: flex; align-items: center; justify-content: center; text-align: center; padding: 40px; background-blend-mode: darken; background-color: rgba(0,0,0,0.6); }
+    .hero h2 { font-size: 48px; color: #00ffcc; margin-bottom: 20px; }
+    .hero p { font-size: 20px; max-width: 600px; margin: auto; color: #ddd; }
+    .services, .features, .pricing, .payment, .contact { display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 20px; padding: 40px; background-color: #1a1a1a; }
+    .service-box, .feature-box, .price-box, .payment-box { background-color: #222; padding: 20px; border-radius: 10px; text-align: center; transition: transform 0.3s; }
+    .service-box:hover, .feature-box:hover, .price-box:hover, .payment-box:hover { transform: scale(1.05); }
+    h3 { color: #00ffcc; margin-bottom: 10px; }
+    .service-box p, .feature-box p, .price-box p, .payment-box p { color: #aaa; }
+    ul { list-style: none; padding: 0; margin: 15px 0; }
+    li { padding: 5px 0; color: #bbb; }
+    .price { font-size: 24px; color: #00ffcc; margin: 15px 0; }
+    .payment-box img { max-width: 200px; margin-bottom: 15px; }
+    form { grid-column: span 1; display: flex; flex-direction: column; gap: 15px; background-color: #2a2a2a; padding: 20px; border-radius: 10px; }
+    label { color: #ccc; text-align: left; }
+    input, textarea, select { width: 100%; padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff; }
+    input::placeholder, textarea::placeholder { color: #888; }
+    button { padding: 10px; border: none; border-radius: 5px; background-color: #00ffcc; color: #000; cursor: pointer; font-weight: bold; transition: background-color 0.3s; }
+    button:hover { background-color: #00ccaa; }
+    footer { background-color: #111; padding: 20px; text-align: center; color: #777; }
+    @media screen and (max-width:768px) {
+      header { flex-wrap: wrap; }
+      nav { display:none; flex-direction:column; background-color:#1f1f1f; position:absolute; top:70px; right:0; left:0; z-index:99; }
+      .navbar-toggle { display:flex; }
+      nav a { color:#fff; padding:15px; text-align:center; background-color:#222; }
+      nav.active { display:flex; }
+      .services, .features, .pricing, .payment, .contact { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dark GYM</h1>
+    <div class="navbar-toggle" onclick="toggleNav()"><div></div><div></div><div></div></div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#services">Services</a>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#payment">Payment</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h2>Train Hard, Stay Strong</h2>
+      <p>Welcome to Dark Gym, your ultimate fitness destination to transform your body and mind in a modern, dark-themed atmosphere.</p>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <div class="service-box"><h3>Personal Training</h3><p>One-on-one training tailored to your goals.</p></div>
+    <div class="service-box"><h3>Group Classes</h3><p>High-energy HIIT, Zumba & more.</p></div>
+    <div class="service-box"><h3>Online Coaching</h3><p>Expert guidance from anywhere.</p></div>
+  </section>
+
+  <section id="features" class="features">
+    <div class="feature-box"><h3>Modern Equipment</h3><p>State-of-the-art machines & tools.</p></div>
+    <div class="feature-box"><h3>Expert Trainers</h3><p>Certified pros to guide you.</p></div>
+    <div class="feature-box"><h3>Nutrition Plans</h3><p>Custom meal plans & support.</p></div>
+  </section>
+
+  <section id="pricing" class="pricing">
+    <div class="price-box"><h3>One Month Plan</h3><p class="price">₹999</p><ul><li>Unlimited Access</li><li>Free Session</li><li>Group Classes</li><li>No Contract</li></ul></div>
+    <div class="price-box"><h3>Three Month Plan</h3><p class="price">₹1,049/mo</p><ul><li>Unlimited Access</li><li>3 Training Sessions</li><li>All Classes</li></ul></div>
+    <div class="price-box"><h3>Six Month Plan</h3><p class="price">₹1,149/mo</p><ul><li>Unlimited Access</li><li>6 Training Sessions</li><li>Nutrition Guidance</li></ul></div>
+    <div class="price-box"><h3>12 Month Plan</h3><p class="price">₹1,199/mo</p><ul><li>Unlimited Access</li><li>24 Sessions</li><li>Nutrition & Goals</li><li>Priority Classes</li><li>Supplement Discounts</li></ul></div>
+  </section>
+
+  <section id="payment" class="payment">
+    <h2>Payment & Upload</h2>
+    <div class="payment-box">
+      <img src="image.png" alt="Scan to Pay QR Code">
+      <p>Scan this QR code to complete your payment.</p>
+    </div>
+    <div class="payment-box">
+        <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="98117f06-8d6b-47ac-988b-587f85d6ce87">
+        <label>Name</label>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <label>Whatsapp Number</label>
+        <input type="tel" name="mobile" placeholder="Phone Number" required>
+        <label>Transaction Number</label>
+        <input type="Num" name="Transaction" placeholder="Transaction Number" required>
+        <label>Email ID</label>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <label>Branch</label>
+        <select name="branch" required><option>Ramkrishna Nagar</option><option>Silchar</option><option>Udharbond</option></select>
+        <label>Duration</label>
+        <select name="duration" required><option>One Month</option><option>Three Month</option><option>Six Month</option><option>Twelve Month</option></select>
+        <label>Upload Payment Screenshot</label>
+        <input type="file" name="screenshot" accept="image/*" required>
+        <input type="hidden" name="redirect" value="https://example.com/thank-you">
+        <button type="submit">Submit Payment Details</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="98117f06-8d6b-47ac-988b-587f85d6ce87">
+      <input type="hidden" name="redirect" value="https://example.com/thank-you">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 FAST FITNESS GYM. All Rights Reserved.</p>
+    <p>DESIGNED & DEVELOPED BY SUDAMASOLUTIONS TECHNOLOGIES & HEALTH CARE PVT LTD</p>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.querySelector('nav').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
